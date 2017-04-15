@@ -1,0 +1,37 @@
+.content{
+  width : 20%;
+  margin: auto;
+  margin-top: 20%;
+  text-align: center;
+}
+
+body{
+  background-color: turquoise;
+  font-family: Arial;
+  font-size: 26px;
+  color: grey;
+}
+
+#button {
+  background-color: white;
+  height: 80px;
+  width: 250px;
+  border-radius: 10px;
+  border-color: grey;
+  font-family: Arial;
+  font-size: 28px;
+  color: grey;
+
+}
+
+#output{
+  background-color: white;
+  height: 50px;
+  width: 250px;
+  margin:auto;
+  margin-top: 20px;
+  padding-top: 20px;
+  background-color: #E8F6F3;
+  color: grey;
+  border-radius: 2px;
+}

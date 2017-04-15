@@ -3,57 +3,55 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script>
+
 window.onload = function(){
 
-var students = ["Oksana", "Ross", "Jody", "Virgi", "Brandon", "Levi", "Scott"];
-var randomOrder = [];
-var countClicks = 0;
+  var students = ["Oksana", "Ross", "Jody", "Virgi", "Brandon", "Levi", "Scott"];
+  var randomOrder = [];
+  var countClicks = 0;
 
-function generateOrder (arr){
-  randomOrder = [];
-  for (i = arr.length; i > 0; i--){
-    var count = arr.length;
-    var randomIndex = Math.floor(Math.random() * (count - 1));
-    var currentSelected = arr.splice(randomIndex,1);
-    randomOrder.push(currentSelected);
-    count --;
+  function generateOrder (arr){
+    randomOrder = [];
+    for (i = arr.length; i > 0; i--){
+      var count = arr.length;
+      var randomIndex = Math.floor(Math.random() * (count - 1));
+      var currentSelected = arr.splice(randomIndex,1);
+      randomOrder.push(currentSelected);
+      count --;
+    }
+    students = ["Oksana", "Ross", "Jody", "Virgi", "Brandon", "Levi", "Scott"];
+    return randomOrder;
   }
-  students = ["Oksana", "Ross", "Jody", "Virgi", "Brandon", "Levi", "Scott"];
-  return randomOrder;
-}
 
-generateOrder(students);
+  generateOrder(students);
 
-console.log('contents of randomOrder ' + randomOrder);
+  console.log('contents of randomOrder ' + randomOrder);
 
-var printOut = document.getElementById('output');
+  var printOut = document.getElementById('output');
 
-var buttonStudent = document.getElementById('button');
+  var buttonStudent = document.getElementById('button');
 
-buttonStudent.onclick = function printOneName(){
-  if (countClicks < randomOrder.length){
-    printOut.innerHTML = "student " + randomOrder[countClicks];
-    console.log('this is click # ' + (countClicks + 1) + ' printing: ' + randomOrder[countClicks]);
-    countClicks ++;
-  } else {
-    countClicks = 0;
-    generateOrder(students);
-    console.log('new array: ' + randomOrder);
-    console.log('this is click # ' + (countClicks + 1) + ' printing: ' + randomOrder[countClicks]);
-    printOut.innerHTML = "student: " + randomOrder[countClicks];
-    countClicks ++;
+  buttonStudent.onclick = function printOneName(){
+    if (countClicks < randomOrder.length){
+      printOut.innerHTML = randomOrder[countClicks];
+      console.log('this is click # ' + (countClicks + 1) + ' printing: ' + randomOrder[countClicks]);
+      countClicks ++;
+    } else {
+      countClicks = 0;
+      generateOrder(students);
+      console.log('new array: ' + randomOrder);
+      console.log('this is click # ' + (countClicks + 1) + ' printing: ' + randomOrder[countClicks]);
+      printOut.innerHTML = randomOrder[countClicks];
+      countClicks ++;
+    }
   }
-}
-
-
-
 }
 </script>
 </head>
 <body>
 <div class = "content">
-<button id="button">Button</button>
-<p>Next Up: <span id="output"></span></p>
+<button id="button">Who's Next?</button>
+<div id="output">Sample</div>
 </div>
 </body>
 </html>
